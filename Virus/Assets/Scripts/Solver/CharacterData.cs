@@ -7,6 +7,9 @@ public class CharacterData
     public int hp;
     public int damage;
     public float speed;
+    public float virusing;
+    public bool isVirusing;
+    public bool isVirused;
     public bool isDead;
     public string[] items;
 }

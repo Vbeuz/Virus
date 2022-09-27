@@ -1,22 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    Camera mainCam;
+
     public SolverList SolverList;
 
+    #region Solver
+    public GameObject solver_UI_Group;
     public GameObject solverCheckList;
     public GameObject solverLists;
     public GameObject solver;
     public GameObject solverEquipUI;
+    public Text solverCount;
+    #endregion
 
-    bool OnOff = false;
+    public GameObject floorDesctop_Group;
+
+    bool CheckListOnOff = false;
 
 
     void Start()
     {
-        
+        mainCam = Camera.main;
     }
 
     void Update()
@@ -25,27 +34,32 @@ public class Player : MonoBehaviour
         {
             SolverList.AddNewUI();
         }
-        OnOffSolverCheckList();
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            OnOffSolverCheckList();
+        }
+        solverCount.text =
+            $"Solver Count : {PlayerData._ID - PlayerData.die}/{PlayerData.MaxSolverCont}" +
+            $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
     }
 
     public void OnOffSolverCheckList()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (!CheckListOnOff)
         {
-            if (!OnOff)
-            {
-                solverCheckList.SetActive(true);
-                solverLists.SetActive(true);
-                solver.SetActive(false);
-                solverEquipUI.SetActive(false);
-                OnOff = solverCheckList.activeSelf;
-            }
-            else
-            {
-                solverCheckList.SetActive(false);
-                solverEquipUI.SetActive(false);
-                OnOff = solverCheckList.activeSelf;
-            }
+            solver_UI_Group.SetActive(true);
+            solverCheckList.SetActive(true);
+            solverLists.SetActive(true);
+            solver.SetActive(false);
+            solverEquipUI.SetActive(false);
+            floorDesctop_Group.SetActive(false);
+            CheckListOnOff = solverCheckList.activeSelf;
+        }
+        else
+        {
+            solverCheckList.SetActive(false);
+            solverEquipUI.SetActive(false);
+            CheckListOnOff = solverCheckList.activeSelf;
         }
     }
 }

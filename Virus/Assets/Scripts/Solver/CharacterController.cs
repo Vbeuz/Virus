@@ -10,4 +10,18 @@ public class CharacterController : MonoBehaviour
     {
 
     }
+
+    private void Update()
+    {
+        if (characterData.isVirusing)
+        {
+
+        }
+    }
+
+    IEnumerator Virusing()
+    {
+        yield return new WaitForSeconds(5f + (characterData.level / 2f));
+        characterData.virusing += 0.1f;
+    }
 }
