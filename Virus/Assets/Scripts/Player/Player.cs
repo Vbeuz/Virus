@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -8,6 +9,8 @@ public class Player : MonoBehaviour
     Camera mainCam;
 
     public SolverList SolverList;
+
+    public GameObject[] solvers_floor;
 
     #region Solver
     public GameObject solver_UI_Group;
@@ -42,6 +45,24 @@ public class Player : MonoBehaviour
         solverCount.text =
             $"Solver Count : {PlayerData._ID - PlayerData.die}/{PlayerData.MaxSolverCont}" +
             $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
+        if (SceneManager.GetActiveScene().name == "Floor1")
+        {
+            solvers_floor[0].SetActive(true);
+            solvers_floor[1].SetActive(false);
+            solvers_floor[2].SetActive(false);
+        }
+        if (SceneManager.GetActiveScene().name == "Floor2")
+        {
+            solvers_floor[0].SetActive(false);
+            solvers_floor[1].SetActive(true);
+            solvers_floor[2].SetActive(false);
+        }
+        if (SceneManager.GetActiveScene().name == "Floor")
+        {
+            solvers_floor[0].SetActive(false);
+            solvers_floor[1].SetActive(false);
+            solvers_floor[2].SetActive(true);
+        }
     }
 
     public void OnOffSolverCheckList()

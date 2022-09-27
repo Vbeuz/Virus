@@ -502,6 +502,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180536855}
   m_CullTransparentMesh: 1
+--- !u!1 &183833230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 183833231}
+  m_Layer: 0
+  m_Name: Floor2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &183833231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183833230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1965448843}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &213507323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,7 +2170,6 @@ GameObject:
   - component: {fileID: 677119609}
   - component: {fileID: 677119611}
   - component: {fileID: 677119610}
-  - component: {fileID: 677119612}
   m_Layer: 5
   m_Name: Solver_CheckList
   m_TagString: Untagged
@@ -2209,30 +2238,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677119608}
   m_CullTransparentMesh: 1
---- !u!114 &677119612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677119608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ea28e447bdd3648abb2e26d80827fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRect: {fileID: 258702826}
-  solverPrefabs: {fileID: 1107613727146506747, guid: f4c1877834251d447ae2bd5b87a360fd, type: 3}
-  solverUIPrefabs: {fileID: 4143936061647832816, guid: 5117885971bcb3d41987613ccd4dbae3, type: 3}
-  _name:
-  - John
-  - Sam
-  - Lisa
-  - Robert
-  - James
-  solverShow: {fileID: 685513425}
-  uiObjects: []
-  characterData: []
 --- !u!1 &685513423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,6 +3117,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021365155}
   m_CullTransparentMesh: 1
+--- !u!1 &1025734647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1025734648}
+  m_Layer: 0
+  m_Name: Floor1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1025734648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025734647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1965448843}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044820316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,6 +4947,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833894189}
   m_CullTransparentMesh: 1
+--- !u!1 &1853772928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853772929}
+  m_Layer: 0
+  m_Name: Floor3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1853772929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853772928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1965448843}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882362694
 GameObject:
   m_ObjectHideFlags: 0
@@ -5203,6 +5268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1965448843}
   - component: {fileID: 1965448844}
+  - component: {fileID: 1965448845}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5222,6 +5288,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 739093467}
+  - {fileID: 1025734648}
+  - {fileID: 183833231}
+  - {fileID: 1853772929}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5237,7 +5306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2e35861a546604088455996037df85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SolverList: {fileID: 677119612}
+  SolverList: {fileID: 1965448845}
+  solvers_floor:
+  - {fileID: 1025734647}
+  - {fileID: 183833230}
+  - {fileID: 1853772928}
   solver_UI_Group: {fileID: 2044108030}
   solverCheckList: {fileID: 677119608}
   solverLists: {fileID: 1448612680}
@@ -5245,6 +5318,34 @@ MonoBehaviour:
   solverEquipUI: {fileID: 472898465}
   solverCount: {fileID: 302939580}
   floorDesctop_Group: {fileID: 2049347760}
+--- !u!114 &1965448845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965448842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ea28e447bdd3648abb2e26d80827fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn:
+  - {fileID: 1025734648}
+  - {fileID: 183833231}
+  - {fileID: 1853772929}
+  scrollRect: {fileID: 258702826}
+  solverPrefabs: {fileID: 1107613727146506747, guid: f4c1877834251d447ae2bd5b87a360fd, type: 3}
+  solverUIPrefabs: {fileID: 4143936061647832816, guid: 5117885971bcb3d41987613ccd4dbae3, type: 3}
+  _name:
+  - John
+  - Sam
+  - Lisa
+  - Robert
+  - James
+  solverShow: {fileID: 685513425}
+  uiObjects: []
+  characterData: []
 --- !u!1 &1977643372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,11 +5927,10 @@ Animation:
   m_GameObject: {fileID: 919132148284108527}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: a2d6aa6f322ed42458dbcc074d6520e2, type: 2}
+  m_Animation: {fileID: 7400000, guid: 18e1b77e0ae88414f9ea6c2465494743, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 18e1b77e0ae88414f9ea6c2465494743, type: 2}
   - {fileID: 7400000, guid: 47f7330d3074c694a9ca08434a843a12, type: 2}
-  - {fileID: 7400000, guid: a2d6aa6f322ed42458dbcc074d6520e2, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -5861,11 +5961,10 @@ Animation:
   m_GameObject: {fileID: 919132148560224294}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: a2d6aa6f322ed42458dbcc074d6520e2, type: 2}
+  m_Animation: {fileID: 7400000, guid: 18e1b77e0ae88414f9ea6c2465494743, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 18e1b77e0ae88414f9ea6c2465494743, type: 2}
   - {fileID: 7400000, guid: 47f7330d3074c694a9ca08434a843a12, type: 2}
-  - {fileID: 7400000, guid: a2d6aa6f322ed42458dbcc074d6520e2, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -6453,7 +6552,7 @@ GameObject:
   - component: {fileID: 2823090746998764174}
   - component: {fileID: 1587545474379716122}
   m_Layer: 0
-  m_Name: Door_Left
+  m_Name: Door_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6542,6 +6641,7 @@ GameObject:
   - component: {fileID: 1151388028029617836}
   - component: {fileID: 2823090747987066854}
   - component: {fileID: 1587545475514817394}
+  - component: {fileID: 8164078559284549016}
   m_Layer: 0
   m_Name: Room_01_Prame
   m_TagString: Untagged
@@ -6549,6 +6649,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8164078559284549016
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164078559284549015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: b0bd22d3dc99b3347ada1c5b7026ea5a, type: 3}
 --- !u!1 &8164078559662143838
 GameObject:
   m_ObjectHideFlags: 0
@@ -6579,7 +6693,7 @@ GameObject:
   - component: {fileID: 2823090747383381580}
   - component: {fileID: 1587545475313654488}
   m_Layer: 0
-  m_Name: Door_Right
+  m_Name: Door_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
