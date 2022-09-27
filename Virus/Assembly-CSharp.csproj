@@ -58,12 +58,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\UI\SolverShow.cs" />
     <Compile Include="Assets\Scripts\UI\SolverUI.cs" />
     <Compile Include="Assets\Scripts\UI\SolverList.cs" />
     <Compile Include="Assets\Scripts\Solver\CharacterController.cs" />
-    <Compile Include="Assets\Scripts\Player\ItemList.cs" />
     <Compile Include="Assets\Scripts\Solver\CharacterData.cs" />
-    <Compile Include="Assets\Scripts\UI\SolverShow.cs" />
+    <Compile Include="Assets\Scripts\Player\ItemList.cs" />
+    <Compile Include="Assets\Scripts\World\Door.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
