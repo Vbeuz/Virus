@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (PlayerData.floor_Virused[floor, roomNumber])
+        if (!PlayerData.floor_Virused[floor, roomNumber])
         {
             door_Lock.Play("LockedDoor_01_Open");
         }

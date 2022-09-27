@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    public enum State
+    {
+        Idle,
+        Move,
+        Worlk,
+
+        Die
+    }
+
     public CharacterData characterData;
 
     void Start()
@@ -15,7 +24,7 @@ public class CharacterController : MonoBehaviour
     {
         if (characterData.isVirusing)
         {
-
+            StartCoroutine(Virusing());
         }
     }
 

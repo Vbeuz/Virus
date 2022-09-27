@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        floorDesctop_Group.SetActive(!CheckListOnOff);
         if (Input.GetKeyDown(KeyCode.F12))
         {
             SolverList.AddNewUI();
@@ -52,7 +53,6 @@ public class Player : MonoBehaviour
             solverLists.SetActive(true);
             solver.SetActive(false);
             solverEquipUI.SetActive(false);
-            floorDesctop_Group.SetActive(false);
             CheckListOnOff = solverCheckList.activeSelf;
         }
         else
