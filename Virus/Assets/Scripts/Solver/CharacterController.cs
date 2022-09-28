@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class CharacterController : MonoBehaviour
 {
-    public enum State
+    public enum Normal_State
     {
         Idle,
         Move,
@@ -16,43 +16,57 @@ public class CharacterController : MonoBehaviour
 
     public CharacterData characterData;
 
-    public State state;
+    public Normal_State normal_state;
 
     bool isWalk;
+    bool isVirusing;
 
     void Start()
     {
-        state = State.Idle;
+        normal_state = Normal_State.Idle;
     }
 
     private void Update()
     {
-        if (characterData.isVirusing)
+        if (characterData.isVirusing && !isVirusing)
         {
             StartCoroutine(Virusing());
         }
 
-        switch (state)
+        if (!characterData.isVirused)
         {
-            case State.Idle:
-                Idle();
-                break;
-            case State.Move:
-                Move();
-                break;
-            case State.Walk:
-                break;
-            case State.Die:
-                break;
-            default:
-                break;
+            switch (normal_state)
+            {
+                case Normal_State.Idle:
+                    Idle();
+                    break;
+                case Normal_State.Move:
+                    Move();
+                    break;
+                case Normal_State.Walk:
+                    break;
+                case Normal_State.Die:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
     IEnumerator Virusing()
     {
-        yield return new WaitForSeconds(5f + (characterData.level / 2f));
-        characterData.virusing += 0.1f;
+        isVirusing = true;
+        yield return new WaitForSeconds(1f + (characterData.level / 2f));
+        characterData.virusing += 0.5f;
+
+        if (characterData.virusing >= 10f)
+        {
+            characterData.isVirusing = false;
+            characterData.isVirused = true;
+
+            PlayerData.virused++;
+        }
+        isVirusing = false;
     }
 
     void Idle()
@@ -66,7 +80,7 @@ public class CharacterController : MonoBehaviour
     IEnumerator IdleChange()
     {
         yield return new WaitForSeconds(3f);
-        state = State.Move;
+        normal_state = Normal_State.Move;
     }
 
     void Move()

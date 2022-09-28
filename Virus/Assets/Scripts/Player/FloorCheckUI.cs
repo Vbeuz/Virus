@@ -8,16 +8,6 @@ public class FloorCheckUI : MonoBehaviour
 
     bool OnOff;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void FloorDesctopOnOff()
     {
         if (!OnOff)

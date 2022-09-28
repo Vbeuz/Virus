@@ -13,7 +13,7 @@ public class SolverUI : MonoBehaviour
     [SerializeField] SolverShow solverShow;
     [SerializeField] GameObject solverList;
 
-    void Start()
+    void Awake()
     {
         ResetUI();
 

@@ -16,22 +16,34 @@ public class Scene_Manager : MonoBehaviour
 
     public void Floor1()
     {
-        SceneManager.LoadScene("Floor1");
-        PlayerData.floor = 0;
+        if (SceneManager.GetActiveScene().name != "Floor1")
+        {
+            SceneManager.LoadScene("Floor1");
+            PlayerData.floor = 0;
+        }
     }
     public void Floor2()
     {
-        SceneManager.LoadScene("Floor2");
-        PlayerData.floor = 1;
+        if (SceneManager.GetActiveScene().name != "Floor2")
+        {
+            SceneManager.LoadScene("Floor2");
+            PlayerData.floor = 1;
+        }
     }
     public void Floor3()
     {
-        SceneManager.LoadScene("Floor3");
-        PlayerData.floor = 2;
+        if (SceneManager.GetActiveScene().name != "Floor3")
+        {
+            SceneManager.LoadScene("Floor3");
+            PlayerData.floor = 2;
+        }
     }
     public void Floor4()
     {
-        SceneManager.LoadScene("Floor4");
-        PlayerData.floor = 3;
+        if (SceneManager.GetActiveScene().name != "Floor4")
+        {
+            SceneManager.LoadScene("Floor4");
+            PlayerData.floor = 3;
+        }
     }
 }

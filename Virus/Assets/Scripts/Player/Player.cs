@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public Camera minimapCam;
     Camera mainCam;
+    Outline outline;
 
     public SolverList solverList;
     public SolverShow solverShow;
@@ -56,10 +57,7 @@ public class Player : MonoBehaviour
             $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
 
         FloorScenes();
-        if (Input.GetMouseButtonDown(0))
-        {
-            CheckSolver();
-        }
+        CheckSolver();
     }
     void FloorScenes()
     {
@@ -119,18 +117,34 @@ public class Player : MonoBehaviour
         {
             if (hit.transform.gameObject.GetComponent<CharacterController>())
             {
-                hitCharacter = hit.transform.gameObject.GetComponent<CharacterController>();
-
-                Debug.Log(hitCharacter.characterData.name);
-
-                if (!CheckListOnOff)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    OnOffSolverCheckList();
+                    hitCharacter = hit.transform.gameObject.GetComponent<CharacterController>();
+
+
+                    sl.SetActive(true);
+
+                    if (!CheckListOnOff)
+                    {
+                        OnOffSolverCheckList();
+                    }
+
+                    solverShow.Show(hitCharacter.characterData.ID);
+                    sl.SetActive(false);
                 }
-                sl.SetActive(false);
-                solverShow.Show(hitCharacter.characterData.ID);
             }
             else
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    solverCheckList.SetActive(false);
+                    solverEquipUI.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
             {
                 solverCheckList.SetActive(false);
                 solverEquipUI.SetActive(false);

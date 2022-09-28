@@ -17,30 +17,33 @@ public class SolverList : MonoBehaviour
 
     public void AddNewUI()
     {
-        var newSolver = Instantiate(solverPrefabs, spawn[PlayerData.floor]).GetComponent<CharacterController>();
-        var newUI = Instantiate(solverUIPrefabs, scrollRect.content).GetComponent<SolverUI>();
+        if (PlayerData._ID - PlayerData.die < PlayerData.MaxSolverCont)
+        {
+            var newSolver = Instantiate(solverPrefabs, spawn[PlayerData.floor]).GetComponent<CharacterController>();
+            var newUI = Instantiate(solverUIPrefabs, scrollRect.content).GetComponent<SolverUI>();
 
-        newSolver.characterData.ID = PlayerData._ID;
-        newSolver.characterData.name = _name[Random.Range(0, _name.Count)];
-        newSolver.characterData.level = 1;
-        newSolver.characterData.hp = Random.Range(20, 50);
-        newSolver.characterData.damage = Random.Range(1, 10);
-        newSolver.characterData.speed = Random.Range(10, 20);
-        newSolver.characterData.floor = PlayerData.floor + 1;
+            newSolver.characterData.ID = PlayerData._ID;
+            newSolver.characterData.name = _name[Random.Range(0, _name.Count)];
+            newSolver.characterData.level = 1;
+            newSolver.characterData.hp = Random.Range(20, 50);
+            newSolver.characterData.damage = Random.Range(1, 10);
+            newSolver.characterData.speed = Random.Range(10, 20);
+            newSolver.characterData.floor = PlayerData.floor + 1;
 
-        newUI.characterData.ID = PlayerData._ID;
-        newUI.characterData.name = newSolver.characterData.name;
-        newUI.characterData.level = newSolver.characterData.level;
-        newUI.characterData.hp = newSolver.characterData.hp;
-        newUI.characterData.damage = newSolver.characterData.damage;
-        newUI.characterData.speed = newSolver.characterData.speed;
-        newUI.characterData.floor = PlayerData.floor + 1;
+            newUI.characterData.ID = PlayerData._ID;
+            newUI.characterData.name = newSolver.characterData.name;
+            newUI.characterData.level = newSolver.characterData.level;
+            newUI.characterData.hp = newSolver.characterData.hp;
+            newUI.characterData.damage = newSolver.characterData.damage;
+            newUI.characterData.speed = newSolver.characterData.speed;
+            newUI.characterData.floor = PlayerData.floor + 1;
 
 
-        characterData.Add(newSolver);
-        uiObjects.Add(newUI);
-        solverShow.solverUIs.Add(newUI);
+            characterData.Add(newSolver);
+            uiObjects.Add(newUI);
+            solverShow.solverUIs.Add(newUI);
 
-        PlayerData._ID++;
+            PlayerData._ID++;
+        }
     }
 }
