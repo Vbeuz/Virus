@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3183520054976682495}
   - component: {fileID: 9100090261545314132}
   - component: {fileID: 7507953736286273060}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,8 @@ MonoBehaviour:
     isDead: 0
     items: []
     floor: 0
-  state: 0
+    area: 0
+  normal_state: 0
 --- !u!195 &3183520054976682495
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -56,25 +56,26 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
+    <Compile Include="Assets\Scripts\Solver\Outlining.cs" />
+    <Compile Include="Assets\Scripts\World\Area.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\UI\SolverShow.cs" />
-    <Compile Include="Assets\Scripts\Player\FloorCheckUI.cs" />
+    <Compile Include="Assets\Scripts\Floor\FloorCheckUI.cs" />
     <Compile Include="Assets\Scripts\UI\SolverUI.cs" />
     <Compile Include="Assets\Scripts\UI\SolverList.cs" />
     <Compile Include="Assets\Scripts\Solver\CharacterController.cs" />
     <Compile Include="Assets\Scripts\World\Scene_Manager.cs" />
+    <Compile Include="Assets\Scripts\Solver\SolverDataBase.cs" />
     <Compile Include="Assets\Scripts\Solver\CharacterData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGizmo.cs" />
     <Compile Include="Assets\Scripts\Player\ItemList.cs" />
     <Compile Include="Assets\Scripts\World\Door.cs" />
     <Compile Include="Assets\Scripts\Floor\Floor.cs" />
-    <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\Scripts\Solver\Outlining.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
-    <None Include="Assets\QuickOutline\Readme.txt" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
   </ItemGroup>
   <ItemGroup>

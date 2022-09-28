@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SolverUI : MonoBehaviour
 {
-    public CharacterData characterData;
+    public SolverData characterData;
 
     public Text dataTxt;
     public Button showButton;

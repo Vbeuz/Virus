@@ -1,5 +1,5 @@
 [System.Serializable]
-public class CharacterData
+public class SolverData
 {
     public int ID;
     public string name;
@@ -14,4 +14,5 @@ public class CharacterData
     public string[] items;
 
     public int floor;
+    public int area;
 }

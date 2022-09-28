@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Outlining : MonoBehaviour
 {
+    Camera mainCam;
+
     Outline outline;
     CharacterController characterController;
 
     void Start()
     {
+        mainCam = Camera.main;
         outline = GetComponent<Outline>();
         characterController = GetComponent<CharacterController>();
     }
@@ -23,15 +26,31 @@ public class Outlining : MonoBehaviour
         {
             outline.OutlineColor = Color.cyan;
         }
+
+        Outlined();
     }
 
-    private void OnMouseEnter()
+    public void Outlined()
     {
-        outline.enabled = true;
-    }
+        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
-    private void OnMouseExit()
-    {
-        outline.enabled = false;
+        LayerMask layerMask = LayerMask.GetMask("Solver");
+
+        if (Physics.Raycast(ray, out hit, 100f, layerMask))
+        {
+            if (this.gameObject == hit.collider.gameObject)
+            {
+                this.outline.enabled = true;
+            }
+            else
+            {
+                outline.enabled = false;
+            }
+        }
+        else
+        {
+            outline.enabled = false;
+        }
     }
 }

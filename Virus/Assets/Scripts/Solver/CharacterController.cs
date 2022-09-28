@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Sprites;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.AI;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour, IPointerClickHandler
 {
     public enum Normal_State
     {
@@ -14,25 +15,26 @@ public class CharacterController : MonoBehaviour
         Die
     }
 
-    public CharacterData characterData;
+    public SolverData characterData;
 
     public Normal_State normal_state;
+    Area _area;
+    SolverDataBase _solverData;
+    Player player;
 
     bool isWalk;
-    bool isVirusing;
+    public bool isVirusing;
 
     void Start()
     {
         normal_state = Normal_State.Idle;
+        _solverData = GetComponentInParent<SolverDataBase>();
+
+        _solverData.characterControllers.Add(this);
     }
 
     private void Update()
     {
-        if (characterData.isVirusing && !isVirusing)
-        {
-            StartCoroutine(Virusing());
-        }
-
         if (!characterData.isVirused)
         {
             switch (normal_state)
@@ -53,20 +55,21 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    IEnumerator Virusing()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        isVirusing = true;
-        yield return new WaitForSeconds(1f + (characterData.level / 2f));
-        characterData.virusing += 0.5f;
-
-        if (characterData.virusing >= 10f)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            characterData.isVirusing = false;
-            characterData.isVirused = true;
-
-            PlayerData.virused++;
+            player.CheckSolver(this);
         }
-        isVirusing = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Area")
+        {
+            _area = other.GetComponent<Area>();
+            characterData.area = _area.AreaNumber;
+        }
     }
 
     void Idle()

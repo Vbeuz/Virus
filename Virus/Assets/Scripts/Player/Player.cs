@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
             $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
 
         FloorScenes();
-        CheckSolver();
     }
     void FloorScenes()
     {
@@ -106,49 +105,22 @@ public class Player : MonoBehaviour
         }
     }
 
-    void CheckSolver()
+    public void CheckSolver(CharacterController _char)
+    {
+        sl.SetActive(true);
+
+        if (!CheckListOnOff)
+        {
+            OnOffSolverCheckList();
+        }
+
+        solverShow.Show(_char.characterData.ID);
+        sl.SetActive(false);
+    }
+
+    public void UI_Off()
     {
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-        CharacterController hitCharacter;
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.transform.gameObject.GetComponent<CharacterController>())
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    hitCharacter = hit.transform.gameObject.GetComponent<CharacterController>();
-
-
-                    sl.SetActive(true);
-
-                    if (!CheckListOnOff)
-                    {
-                        OnOffSolverCheckList();
-                    }
-
-                    solverShow.Show(hitCharacter.characterData.ID);
-                    sl.SetActive(false);
-                }
-            }
-            else
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    solverCheckList.SetActive(false);
-                    solverEquipUI.SetActive(false);
-                }
-            }
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                solverCheckList.SetActive(false);
-                solverEquipUI.SetActive(false);
-            }
-        }
     }
 }
