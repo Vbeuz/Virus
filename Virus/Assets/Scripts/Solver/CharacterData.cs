@@ -12,4 +12,6 @@ public class CharacterData
     public bool isVirused;
     public bool isDead;
     public string[] items;
+
+    public int floor;
 }

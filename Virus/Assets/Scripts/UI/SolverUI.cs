@@ -34,7 +34,8 @@ public class SolverUI : MonoBehaviour
             $"Leve : {characterData.level}\n" +
             $"HP : {characterData.hp}\n" +
             $"Damage : {characterData.damage}\n" +
-            $"Speed : {characterData.speed}\n";
+            $"Speed : {characterData.speed}\n" +
+            $"Floor : ";
     }
 
     public void ShowData()

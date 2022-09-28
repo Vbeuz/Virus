@@ -26,6 +26,7 @@ public class SolverList : MonoBehaviour
         newSolver.characterData.hp = Random.Range(20, 50);
         newSolver.characterData.damage = Random.Range(1, 10);
         newSolver.characterData.speed = Random.Range(10, 20);
+        newSolver.characterData.floor = PlayerData.floor + 1;
 
         newUI.characterData.ID = PlayerData._ID;
         newUI.characterData.name = newSolver.characterData.name;
@@ -33,6 +34,7 @@ public class SolverList : MonoBehaviour
         newUI.characterData.hp = newSolver.characterData.hp;
         newUI.characterData.damage = newSolver.characterData.damage;
         newUI.characterData.speed = newSolver.characterData.speed;
+        newUI.characterData.floor = PlayerData.floor + 1;
 
 
         characterData.Add(newSolver);

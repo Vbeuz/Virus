@@ -6,11 +6,16 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Camera minimapCam;
     Camera mainCam;
 
-    public SolverList SolverList;
+    public SolverList solverList;
+    public SolverShow solverShow;
+    public GameObject sl;
 
     public GameObject[] solvers_floor;
+
+    [SerializeField] int nowScene;
 
     #region Solver
     public GameObject solver_UI_Group;
@@ -29,6 +34,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
@@ -36,35 +42,55 @@ public class Player : MonoBehaviour
         floorDesctop_Group.SetActive(!CheckListOnOff);
         if (Input.GetKeyDown(KeyCode.F12))
         {
-            SolverList.AddNewUI();
+            solverList.AddNewUI();
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
             OnOffSolverCheckList();
         }
+        CheckListOnOff = solverCheckList.activeSelf;
+
+
         solverCount.text =
             $"Solver Count : {PlayerData._ID - PlayerData.die}/{PlayerData.MaxSolverCont}" +
             $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
-        if (SceneManager.GetActiveScene().name == "Floor1")
+
+        FloorScenes();
+        if (Input.GetMouseButtonDown(0))
         {
+            CheckSolver();
+        }
+    }
+    void FloorScenes()
+    {
+        if (SceneManager.GetActiveScene().name == "Floor1" && nowScene != SceneManager.sceneCount)
+        {
+            nowScene = SceneManager.sceneCount;
             solvers_floor[0].SetActive(true);
             solvers_floor[1].SetActive(false);
             solvers_floor[2].SetActive(false);
         }
-        if (SceneManager.GetActiveScene().name == "Floor2")
+        else if (SceneManager.GetActiveScene().name == "Floor2" && nowScene != SceneManager.sceneCount)
         {
+            nowScene = SceneManager.sceneCount;
             solvers_floor[0].SetActive(false);
             solvers_floor[1].SetActive(true);
             solvers_floor[2].SetActive(false);
         }
-        if (SceneManager.GetActiveScene().name == "Floor")
+        else if (SceneManager.GetActiveScene().name == "Floor3" && nowScene != SceneManager.sceneCount)
         {
+            nowScene = SceneManager.sceneCount;
             solvers_floor[0].SetActive(false);
             solvers_floor[1].SetActive(false);
             solvers_floor[2].SetActive(true);
         }
+        else if (nowScene != SceneManager.sceneCount)
+        {
+            solvers_floor[0].SetActive(false);
+            solvers_floor[1].SetActive(false);
+            solvers_floor[2].SetActive(false);
+        }
     }
-
     public void OnOffSolverCheckList()
     {
         if (!CheckListOnOff)
@@ -74,13 +100,41 @@ public class Player : MonoBehaviour
             solverLists.SetActive(true);
             solver.SetActive(false);
             solverEquipUI.SetActive(false);
-            CheckListOnOff = solverCheckList.activeSelf;
         }
         else
         {
             solverCheckList.SetActive(false);
             solverEquipUI.SetActive(false);
-            CheckListOnOff = solverCheckList.activeSelf;
+        }
+    }
+
+    void CheckSolver()
+    {
+        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        CharacterController hitCharacter;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.gameObject.GetComponent<CharacterController>())
+            {
+                hitCharacter = hit.transform.gameObject.GetComponent<CharacterController>();
+
+                Debug.Log(hitCharacter.characterData.name);
+
+                if (!CheckListOnOff)
+                {
+                    OnOffSolverCheckList();
+                }
+                sl.SetActive(false);
+                solverShow.Show(hitCharacter.characterData.ID);
+            }
+            else
+            {
+                solverCheckList.SetActive(false);
+                solverEquipUI.SetActive(false);
+            }
         }
     }
 }
