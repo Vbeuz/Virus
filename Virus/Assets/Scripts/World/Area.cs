@@ -6,13 +6,4 @@ public class Area : MonoBehaviour
 {
     public int AreaNumber;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }

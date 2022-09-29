@@ -15,18 +15,18 @@ public class SolverUI : MonoBehaviour
 
     void Awake()
     {
-        ResetUI();
+        //ResetUI();
 
         solverShow = GameObject.Find("Solver_Data").GetComponent<SolverShow>();
         solverList = GameObject.Find("SolverList");
         showButton.onClick.AddListener(() => solverShow.Show(characterData.ID));
     }
 
-    void Update()
+    private void Start()
     {
-        
+        ResetUI();
     }
-
+    
     public void ResetUI()
     {
         dataTxt.text = 
