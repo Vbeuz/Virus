@@ -1,17 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public GraphicRaycaster m_Raycaster;
-    PointerEventData m_PointerEventData;
-    EventSystem m_EventSystem;
-
-
     public Camera minimapCam;
     Camera mainCam;
 
@@ -55,25 +49,6 @@ public class Player : MonoBehaviour
         {
             OnOffSolverCheckList();
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.DrawRay(Input.mousePosition, Vector3.forward * 10, Color.red);
-
-            m_PointerEventData = new PointerEventData(m_EventSystem);
-            m_PointerEventData.position = Input.mousePosition;
-
-            List<RaycastResult> results = new List<RaycastResult>();
-
-            m_Raycaster.Raycast(m_PointerEventData, results);
-
-            //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
-            foreach (RaycastResult result in results)
-            {
-                Debug.Log("Hit " + result.gameObject.name);
-                // OffCheckSolver();
-            }
-        }
-
 
         solverCount.text =
             $"Solver Count : {PlayerData._ID - PlayerData.die}/{PlayerData.MaxSolverCont}" +

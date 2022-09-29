@@ -14,6 +14,7 @@ public class SolverShow : MonoBehaviour
 
     public void Show(int index)
     {
+        Debug.Log("Show");
         dataTxt.text = solverUIs[index].dataTxt.text;
         floorTxt.text = solverUIs[index].characterData.floor.ToString();
         data.gameObject.SetActive(true);

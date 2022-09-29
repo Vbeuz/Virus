@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.7
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.23333333
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -7239,7 +7239,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!114 &1985720865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7272,7 +7272,7 @@ Canvas:
   m_GameObject: {fileID: 1985720862}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 925563779}
   m_PlaneDistance: 0.1
   m_PixelPerfect: 0
