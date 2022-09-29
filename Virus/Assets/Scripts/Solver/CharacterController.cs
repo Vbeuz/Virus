@@ -64,13 +64,13 @@ public class CharacterController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
+
             if (Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Solver")))
             {
-                player.CheckSolver(this);
-            }
-            else if (!Physics.Raycast(ray, out hit) || Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Area")))
-            {
-                player.OffCheckSolver();
+                if (hit.collider.gameObject == this.gameObject)
+                {
+                    player.CheckSolver(this);
+                }
             }
         }
     }

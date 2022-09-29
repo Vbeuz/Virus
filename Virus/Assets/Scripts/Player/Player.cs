@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GraphicRaycaster m_Raycaster;
+    PointerEventData m_PointerEventData;
+    EventSystem m_EventSystem;
+
+
     public Camera minimapCam;
     Camera mainCam;
-    Outline outline;
 
     public SolverList solverList;
     public SolverShow solverShow;
@@ -50,7 +55,26 @@ public class Player : MonoBehaviour
         {
             OnOffSolverCheckList();
         }
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.DrawRay(Input.mousePosition, Vector3.forward * 10, Color.red);
+
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+            m_PointerEventData.position = Input.mousePosition;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            m_Raycaster.Raycast(m_PointerEventData, results);
+
+            //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
+            foreach (RaycastResult result in results)
+            {
+                Debug.Log("Hit " + result.gameObject.name);
+                // OffCheckSolver();
+            }
+        }
+
+
         solverCount.text =
             $"Solver Count : {PlayerData._ID - PlayerData.die}/{PlayerData.MaxSolverCont}" +
             $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
@@ -65,6 +89,7 @@ public class Player : MonoBehaviour
             solvers_floor[0].SetActive(true);
             solvers_floor[1].SetActive(false);
             solvers_floor[2].SetActive(false);
+            solvers_floor[3].SetActive(false);
         }
         else if (SceneManager.GetActiveScene().name == "Floor2" && nowScene != SceneManager.sceneCount)
         {
@@ -72,6 +97,7 @@ public class Player : MonoBehaviour
             solvers_floor[0].SetActive(false);
             solvers_floor[1].SetActive(true);
             solvers_floor[2].SetActive(false);
+            solvers_floor[3].SetActive(false);
         }
         else if (SceneManager.GetActiveScene().name == "Floor3" && nowScene != SceneManager.sceneCount)
         {
@@ -79,12 +105,22 @@ public class Player : MonoBehaviour
             solvers_floor[0].SetActive(false);
             solvers_floor[1].SetActive(false);
             solvers_floor[2].SetActive(true);
+            solvers_floor[3].SetActive(false);
+        }
+        else if (SceneManager.GetActiveScene().name == "Floor4" && nowScene != SceneManager.sceneCount)
+        {
+            nowScene = SceneManager.sceneCount;
+            solvers_floor[0].SetActive(false);
+            solvers_floor[1].SetActive(false);
+            solvers_floor[2].SetActive(false);
+            solvers_floor[3].SetActive(true);
         }
         else if (nowScene != SceneManager.sceneCount)
         {
             solvers_floor[0].SetActive(false);
             solvers_floor[1].SetActive(false);
             solvers_floor[2].SetActive(false);
+            solvers_floor[3].SetActive(false);
         }
     }
     public void OnOffSolverCheckList()
@@ -114,13 +150,16 @@ public class Player : MonoBehaviour
         }
 
         solverShow.Show(_char.characterData.ID);
+
         sl.SetActive(false);
     }
 
     public void OffCheckSolver()
     {
-        OnOffSolverCheckList();
-        sl.SetActive(false);
+        if (CheckListOnOff)
+        {
+            OnOffSolverCheckList();
+        }
     }
 
     public void UI_Off()

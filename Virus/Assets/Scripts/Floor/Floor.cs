@@ -8,9 +8,4 @@ public class Floor : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
-
-    void Update()
-    {
-        
-    }
 }

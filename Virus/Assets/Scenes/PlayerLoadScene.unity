@@ -682,7 +682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.0000916, y: -4.500122}
+  m_AnchoredPosition: {x: -3.000061, y: -4.500122}
   m_SizeDelta: {x: -72.0023, y: -69.0021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192455834
@@ -1510,8 +1510,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 602.7, y: 0}
+  m_SizeDelta: {x: 714, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &355721676
 GameObject:
@@ -3026,7 +3026,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 316.3271, y: 180}
+  m_SizeDelta: {x: 316, y: 180}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &667824206
 MonoBehaviour:
@@ -3702,6 +3702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2e35861a546604088455996037df85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Raycaster: {fileID: 1985720864}
   minimapCam: {fileID: 1048012458}
   solverList: {fileID: 826788184}
   solverShow: {fileID: 2144602623}
@@ -6178,10 +6179,10 @@ RectTransform:
   m_Father: {fileID: 344208585}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 602.94556, y: 0}
-  m_SizeDelta: {x: 714, y: 1080}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -357.05444, y: 0}
+  m_SizeDelta: {x: 714, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706248241
 MonoBehaviour:
@@ -6888,11 +6889,11 @@ RectTransform:
   m_Father: {fileID: 1985720863}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 316, y: 180}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1 &1925151597
 GameObject:
   m_ObjectHideFlags: 0
@@ -7238,7 +7239,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &1985720865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7271,9 +7272,9 @@ Canvas:
   m_GameObject: {fileID: 1985720862}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 925563779}
+  m_PlaneDistance: 0.1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -7493,6 +7494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053325431}
+  - component: {fileID: 2053325432}
   m_Layer: 5
   m_Name: SolverList
   m_TagString: Untagged
@@ -7520,6 +7522,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &2053325432
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053325430}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &2070347517
 GameObject:
   m_ObjectHideFlags: 0

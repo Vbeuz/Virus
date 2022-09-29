@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
+    <Compile Include="Assets\Scripts\World\World_Canvas.cs" />
     <Compile Include="Assets\Scripts\Solver\Outlining.cs" />
     <Compile Include="Assets\Scripts\World\Area.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="Assets\Scripts\Player\ItemList.cs" />
     <Compile Include="Assets\Scripts\World\Door.cs" />
     <Compile Include="Assets\Scripts\Floor\Floor.cs" />
-    <Compile Include="Assets\Scripts\World\World_Canvas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
