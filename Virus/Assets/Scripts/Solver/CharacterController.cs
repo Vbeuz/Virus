@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Sprites;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.AI;
 
-public class CharacterController : MonoBehaviour, IPointerClickHandler
+public class CharacterController : MonoBehaviour
 {
     public enum Normal_State
     {
@@ -29,6 +28,7 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
     {
         normal_state = Normal_State.Idle;
         _solverData = GetComponentInParent<SolverDataBase>();
+        player = GameObject.Find("Player").GetComponent<Player>();
 
         _solverData.characterControllers.Add(this);
     }
@@ -53,13 +53,25 @@ public class CharacterController : MonoBehaviour, IPointerClickHandler
                     break;
             }
         }
+
+        CharacterClick();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void CharacterClick()
     {
-        if (eventData.button == PointerEventData.InputButton.Left)
+        if (Input.GetMouseButtonDown(0))
         {
-            player.CheckSolver(this);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Solver")))
+            {
+                player.CheckSolver(this);
+            }
+            else if (!Physics.Raycast(ray, out hit) || Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Area")))
+            {
+                player.OffCheckSolver();
+            }
         }
     }
 

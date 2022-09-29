@@ -14,15 +14,18 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (!PlayerData.floor_Virused[floor, roomNumber])
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            door_Lock.Play("LockedDoor_01_Open");
+            DoorOnOff();
+
+            // door_Lock.Play("LockedDoor_01_Open");
         }
-        else
+
+        if (false)
         {
-            ani[0].Play("Door_01_Close");
-            ani[1].Play("Door_01_Close");
-            door_Lock.Play("LockedDoor_01_Close");
+            //ani[0].Play("Door_01_Close");
+            //ani[1].Play("Door_01_Close");
+            //door_Lock.Play("LockedDoor_01_Close");
         }
     }
 
@@ -30,15 +33,20 @@ public class Door : MonoBehaviour
     {
         if (!PlayerData.floor_Virused[floor, roomNumber])
         {
+            Debug.Log("O");
             if (!isOpen)
             {
+                Debug.Log("Open");
                 ani[0].Play("Door_01_Open");
                 ani[1].Play("Door_01_Open");
+                isOpen = true;
             }
             else
             {
+                Debug.Log("Close");
                 ani[0].Play("Door_01_Close");
                 ani[1].Play("Door_01_Close");
+                isOpen = false;
             }
         }
     }

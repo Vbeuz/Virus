@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        CheckListOnOff = solverCheckList.activeSelf;
         floorDesctop_Group.SetActive(!CheckListOnOff);
         if (Input.GetKeyDown(KeyCode.F12))
         {
@@ -49,9 +50,7 @@ public class Player : MonoBehaviour
         {
             OnOffSolverCheckList();
         }
-        CheckListOnOff = solverCheckList.activeSelf;
-
-
+        
         solverCount.text =
             $"Solver Count : {PlayerData._ID - PlayerData.die}/{PlayerData.MaxSolverCont}" +
             $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
@@ -115,6 +114,12 @@ public class Player : MonoBehaviour
         }
 
         solverShow.Show(_char.characterData.ID);
+        sl.SetActive(false);
+    }
+
+    public void OffCheckSolver()
+    {
+        OnOffSolverCheckList();
         sl.SetActive(false);
     }
 

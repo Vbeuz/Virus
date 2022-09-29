@@ -497,8 +497,13 @@ MonoBehaviour:
     hp: 0
     damage: 0
     speed: 0
+    virusing: 0
+    isVirusing: 0
+    isVirused: 0
     isDead: 0
     items: []
+    floor: 0
+    area: 0
   dataTxt: {fileID: 4143936060781611956}
   showButton: {fileID: 4143936061158325782}
   solverShow: {fileID: 0}
