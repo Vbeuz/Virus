@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class SolverDataBase : MonoBehaviour
 {
-    public List<CharacterController> characterControllers = new List<CharacterController>();
+    public List<Character> characterControllers = new List<Character>();
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         for (int i = 0; i < characterControllers.Count; i++)

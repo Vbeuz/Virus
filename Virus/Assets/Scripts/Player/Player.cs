@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
 {
     public Camera minimapCam;
     Camera mainCam;
+    CharacterController controller;
+
+    public float speed = 40;
+    public float scrollSpeed = 10;
 
     public SolverList solverList;
     public SolverShow solverShow;
@@ -34,6 +38,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
+        controller = GetComponent<CharacterController>();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -55,6 +60,7 @@ public class Player : MonoBehaviour
             $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
 
         FloorScenes();
+        MonveControlling();
     }
     void FloorScenes()
     {
@@ -98,6 +104,7 @@ public class Player : MonoBehaviour
             solvers_floor[3].SetActive(false);
         }
     }
+    #region Solver
     public void OnOffSolverCheckList()
     {
         if (!CheckListOnOff)
@@ -115,7 +122,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void CheckSolver(CharacterController _char)
+    public void CheckSolver(int _char)
     {
         sl.SetActive(true);
 
@@ -124,7 +131,7 @@ public class Player : MonoBehaviour
             OnOffSolverCheckList();
         }
 
-        solverShow.Show(_char.characterData.ID);
+        solverShow.Show(_char);
 
         sl.SetActive(false);
     }
@@ -136,10 +143,27 @@ public class Player : MonoBehaviour
             OnOffSolverCheckList();
         }
     }
+    #endregion
 
-    public void UI_Off()
+    void MonveControlling()
     {
-        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        float h = Input.GetAxisRaw("Horizontal") * speed;
+        float v = Input.GetAxisRaw("Vertical") * speed;
+        float scroll = Input.GetAxisRaw("Mouse ScrollWheel") * scrollSpeed;
 
+        Vector3 dir = new Vector3(h * mainCam.orthographicSize, 0, v * mainCam.orthographicSize);
+        dir = dir.normalized;
+
+        controller.Move(dir);
+
+        mainCam.orthographicSize -= scroll;
+        if (mainCam.orthographicSize < 5)
+        {
+            mainCam.orthographicSize = 5;
+        }
+        else if (mainCam.orthographicSize > 50)
+        {
+            mainCam.orthographicSize = 50;
+        }
     }
 }

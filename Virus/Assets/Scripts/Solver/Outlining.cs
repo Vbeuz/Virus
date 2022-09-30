@@ -7,18 +7,18 @@ public class Outlining : MonoBehaviour
     Camera mainCam;
 
     Outline outline;
-    CharacterController characterController;
+    Character character;
 
     void Start()
     {
         mainCam = Camera.main;
         outline = GetComponent<Outline>();
-        characterController = GetComponent<CharacterController>();
+        character = GetComponent<Character>();
     }
 
     void Update()
     {
-        if (characterController.characterData.isVirused)
+        if (character.characterData.isVirused)
         {
             outline.OutlineColor = Color.red;
         }

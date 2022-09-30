@@ -15,4 +15,6 @@ public class SolverData
 
     public int floor;
     public int area;
+
+    public string walkSapce;
 }

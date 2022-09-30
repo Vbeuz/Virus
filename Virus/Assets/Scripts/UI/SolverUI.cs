@@ -10,21 +10,21 @@ public class SolverUI : MonoBehaviour
     public Text dataTxt;
     public Button showButton;
 
-    [SerializeField] SolverShow solverShow;
-    [SerializeField] GameObject solverList;
+    [SerializeField] Player player;
+    // [SerializeField] GameObject solverList;
 
     void Awake()
     {
         ResetUI();
-
-        solverShow = GameObject.Find("Solver_Data").GetComponent<SolverShow>();
-        solverList = GameObject.Find("SolverList");
-        showButton.onClick.AddListener(() => solverShow.Show(characterData.ID));
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     private void Start()
     {
         ResetUI();
+
+        // solverList = GameObject.Find("SolverList");
+        showButton.onClick.AddListener(() => player.CheckSolver(characterData.ID));
     }
     
     public void ResetUI()
@@ -40,6 +40,6 @@ public class SolverUI : MonoBehaviour
 
     public void ShowData()
     {
-        solverList.SetActive(false);
+        // solverList.SetActive(false);
     }
 }

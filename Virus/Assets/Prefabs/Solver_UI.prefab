@@ -351,19 +351,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4143936061158325777}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4143936061647832818}
-        m_TargetAssemblyTypeName: SolverUI, Assembly-CSharp
-        m_MethodName: ShowData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4143936061330434733
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,5 +494,4 @@ MonoBehaviour:
     area: 0
   dataTxt: {fileID: 4143936060781611956}
   showButton: {fileID: 4143936061158325782}
-  solverShow: {fileID: 0}
-  solverList: {fileID: 0}
+  player: {fileID: 0}

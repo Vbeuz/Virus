@@ -13,13 +13,13 @@ public class SolverList : MonoBehaviour
 
     public SolverShow solverShow;
     public List<SolverUI> uiObjects = new List<SolverUI>();
-    public List<CharacterController> characterData = new List<CharacterController>();
+    public List<Character> characterData = new List<Character>();
 
     public void AddNewUI()
     {
         if (PlayerData._ID - PlayerData.die < PlayerData.MaxSolverCont)
         {
-            var newSolver = Instantiate(solverPrefabs, spawn[PlayerData.floor]).GetComponent<CharacterController>();
+            var newSolver = Instantiate(solverPrefabs, spawn[0]).GetComponent<Character>();
             var newUI = Instantiate(solverUIPrefabs, scrollRect.content).GetComponent<SolverUI>();
 
             newSolver.characterData.ID = PlayerData._ID;
@@ -28,7 +28,7 @@ public class SolverList : MonoBehaviour
             newSolver.characterData.hp = Random.Range(20, 50);
             newSolver.characterData.damage = Random.Range(1, 10);
             newSolver.characterData.speed = Random.Range(10, 20);
-            newSolver.characterData.floor = PlayerData.floor + 1;
+            newSolver.characterData.floor = 1;
 
             newUI.characterData.ID = PlayerData._ID;
             newUI.characterData.name = newSolver.characterData.name;
@@ -36,7 +36,7 @@ public class SolverList : MonoBehaviour
             newUI.characterData.hp = newSolver.characterData.hp;
             newUI.characterData.damage = newSolver.characterData.damage;
             newUI.characterData.speed = newSolver.characterData.speed;
-            newUI.characterData.floor = PlayerData.floor + 1;
+            newUI.characterData.floor = 1;
 
 
             characterData.Add(newSolver);
