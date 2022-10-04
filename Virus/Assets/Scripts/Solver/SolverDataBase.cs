@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SolverDataBase : MonoBehaviour
 {
-    public List<Character> characterControllers = new List<Character>();
+    public List<Character> character = new List<Character>();
 
     void Update()
     {
-        for (int i = 0; i < characterControllers.Count; i++)
+        for (int i = 0; i < character.Count; i++)
         {
-            if (characterControllers[i].characterData.isVirusing && !characterControllers[i].isVirusing)
+            if (character[i].characterData.isVirusing && !character[i].isVirusing)
             {
                 StartCoroutine(Virusing(i));
             }
@@ -19,19 +19,19 @@ public class SolverDataBase : MonoBehaviour
 
     IEnumerator Virusing(int _i)
     {
-        characterControllers[_i].isVirusing = true;
-        yield return new WaitForSeconds(1f + (characterControllers[_i].characterData.level / 2f));
-        characterControllers[_i].characterData.virusing += 0.5f;
+        character[_i].isVirusing = true;
+        yield return new WaitForSeconds(1f + (character[_i].characterData.level / 2f));
+        character[_i].characterData.virusing += 0.5f;
 
-        if (characterControllers[_i].characterData.virusing >= 10f)
+        if (character[_i].characterData.virusing >= 10f)
         {
-            characterControllers[_i].characterData.isVirusing = false;
-            characterControllers[_i].characterData.isVirused = true;
-            PlayerData.floor_Virused[characterControllers[_i].characterData.floor - 1, characterControllers[_i].characterData.area] = true;
+            character[_i].characterData.isVirusing = false;
+            character[_i].characterData.isVirused = true;
+            PlayerData.floor_Virused[character[_i].characterData.floor - 1, character[_i].characterData.area] = true;
 
             PlayerData.virused++;
         }
-        characterControllers[_i].isVirusing = false;
+        character[_i].isVirusing = false;
     }
 
 }

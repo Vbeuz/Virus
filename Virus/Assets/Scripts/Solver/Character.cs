@@ -22,7 +22,6 @@ public class Character : MonoBehaviour
     Player player;
 
     NavMeshAgent agent;
-
     Transform target;
 
     bool isWalk;
@@ -35,7 +34,7 @@ public class Character : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Player>();
         agent = GetComponent<NavMeshAgent>();
 
-        _solverData.characterControllers.Add(this);
+        _solverData.character.Add(this);
     }
 
     private void Update()
@@ -116,8 +115,8 @@ public class Character : MonoBehaviour
 
     void Walk()
     {
-        target = GameObject.Find(characterData.walkSapce).transform;
+        // target = GameObject.Find(characterData.walkSapce).transform;
 
-        agent.SetDestination(target.position);
+        // agent.SetDestination(target.position);
     }
 }

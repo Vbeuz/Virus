@@ -13,7 +13,7 @@ public class SolverList : MonoBehaviour
 
     public SolverShow solverShow;
     public List<SolverUI> uiObjects = new List<SolverUI>();
-    public List<Character> characterData = new List<Character>();
+    public List<Character> character = new List<Character>();
 
     public void AddNewUI()
     {
@@ -31,15 +31,15 @@ public class SolverList : MonoBehaviour
             newSolver.characterData.floor = 1;
 
             newUI.characterData.ID = PlayerData._ID;
-            newUI.characterData.name = newSolver.characterData.name;
-            newUI.characterData.level = newSolver.characterData.level;
-            newUI.characterData.hp = newSolver.characterData.hp;
-            newUI.characterData.damage = newSolver.characterData.damage;
-            newUI.characterData.speed = newSolver.characterData.speed;
-            newUI.characterData.floor = 1;
+            //newUI.characterData.name = newSolver.characterData.name;
+            //newUI.characterData.level = newSolver.characterData.level;
+            //newUI.characterData.hp = newSolver.characterData.hp;
+            //newUI.characterData.damage = newSolver.characterData.damage;
+            //newUI.characterData.speed = newSolver.characterData.speed;
+            //newUI.characterData.floor = 1;
 
 
-            characterData.Add(newSolver);
+            character.Add(newSolver);
             uiObjects.Add(newUI);
             solverShow.solverUIs.Add(newUI);
 
