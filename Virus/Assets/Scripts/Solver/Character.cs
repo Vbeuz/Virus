@@ -35,6 +35,7 @@ public class Character : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         _solverData.character.Add(this);
+        FloorButton.characters.Add(this);
     }
 
     private void Update()
@@ -89,6 +90,7 @@ public class Character : MonoBehaviour
         }
     }
 
+    #region State
     void Idle()
     {
         if (!isWalk)
@@ -115,8 +117,12 @@ public class Character : MonoBehaviour
 
     void Walk()
     {
-        // target = GameObject.Find(characterData.walkSapce).transform;
+        if (target == null && target != GameObject.Find("WalkBase"))
+        {
+            target = GameObject.Find("WalkBase").transform;
+        }
 
-        // agent.SetDestination(target.position);
+        agent.SetDestination(target.position);
     }
+    #endregion
 }

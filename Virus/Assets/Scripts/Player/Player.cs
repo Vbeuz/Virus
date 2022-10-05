@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -16,8 +15,6 @@ public class Player : MonoBehaviour
     public SolverList solverList;
     public SolverShow solverShow;
     public GameObject sl;
-
-    public GameObject[] solvers_floor;
 
     [SerializeField] int nowScene;
 
@@ -59,51 +56,10 @@ public class Player : MonoBehaviour
             $"Solver Count : {PlayerData._ID - PlayerData.die}/{PlayerData.MaxSolverCont}" +
             $"\nVirused Solver : {PlayerData.virused}/{PlayerData.MaxSolverCont}";
 
-        FloorScenes();
         MonveControlling();
+
     }
-    void FloorScenes()
-    {
-        if (SceneManager.GetActiveScene().name == "Floor1" && nowScene != SceneManager.sceneCount)
-        {
-            nowScene = SceneManager.sceneCount;
-            solvers_floor[0].SetActive(true);
-            solvers_floor[1].SetActive(false);
-            solvers_floor[2].SetActive(false);
-            solvers_floor[3].SetActive(false);
-        }
-        else if (SceneManager.GetActiveScene().name == "Floor2" && nowScene != SceneManager.sceneCount)
-        {
-            nowScene = SceneManager.sceneCount;
-            solvers_floor[0].SetActive(false);
-            solvers_floor[1].SetActive(true);
-            solvers_floor[2].SetActive(false);
-            solvers_floor[3].SetActive(false);
-        }
-        else if (SceneManager.GetActiveScene().name == "Floor3" && nowScene != SceneManager.sceneCount)
-        {
-            nowScene = SceneManager.sceneCount;
-            solvers_floor[0].SetActive(false);
-            solvers_floor[1].SetActive(false);
-            solvers_floor[2].SetActive(true);
-            solvers_floor[3].SetActive(false);
-        }
-        else if (SceneManager.GetActiveScene().name == "Floor4" && nowScene != SceneManager.sceneCount)
-        {
-            nowScene = SceneManager.sceneCount;
-            solvers_floor[0].SetActive(false);
-            solvers_floor[1].SetActive(false);
-            solvers_floor[2].SetActive(false);
-            solvers_floor[3].SetActive(true);
-        }
-        else if (nowScene != SceneManager.sceneCount)
-        {
-            solvers_floor[0].SetActive(false);
-            solvers_floor[1].SetActive(false);
-            solvers_floor[2].SetActive(false);
-            solvers_floor[3].SetActive(false);
-        }
-    }
+
     #region Solver
     public void OnOffSolverCheckList()
     {

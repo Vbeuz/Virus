@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FloorButton : MonoBehaviour
 {
+    public static List<Character> characters = new List<Character>();
+
     public GameObject floor_ui;
     public SolverShow solverShow;
 
@@ -30,21 +32,25 @@ public class FloorButton : MonoBehaviour
 
     public void Floor1()
     {
-
+        characters[solverShow.floor].characterData.floor = 1;
+        characters[solverShow.floor].transform.position = Vector3.zero;
     }
     
     public void Floor2()
     {
-
+        characters[solverShow.floor].characterData.floor = 2;
+        characters[solverShow.floor].transform.position = Vector3.zero;
     }
     
     public void Floor3()
     {
-
+        characters[solverShow.floor].characterData.floor = 3;
+        characters[solverShow.floor].transform.position = Vector3.zero;
     }
     
     public void Floor4()
     {
-
+        characters[solverShow.floor].characterData.floor = 4;
+        characters[solverShow.floor].transform.position = Vector3.zero;
     }
 }

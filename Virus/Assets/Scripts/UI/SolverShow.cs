@@ -12,10 +12,14 @@ public class SolverShow : MonoBehaviour
 
     public Image[] Item;
 
+    public int floor;
+
     public void Show(int index)
     {
         dataTxt.text = solverUIs[index].dataTxt.text;
         floorTxt.text = solverUIs[index].characterData.floor.ToString();
         data.gameObject.SetActive(true);
+
+        floor = index;
     }
 }

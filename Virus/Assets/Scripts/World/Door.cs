@@ -33,17 +33,14 @@ public class Door : MonoBehaviour
     {
         if (!PlayerData.floor_Virused[floor, roomNumber])
         {
-            Debug.Log("O");
             if (!isOpen)
             {
-                Debug.Log("Open");
                 ani[0].Play("Door_01_Open");
                 ani[1].Play("Door_01_Open");
                 isOpen = true;
             }
             else
             {
-                Debug.Log("Close");
                 ani[0].Play("Door_01_Close");
                 ani[1].Play("Door_01_Close");
                 isOpen = false;

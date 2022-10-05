@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SolverDataBase : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class SolverDataBase : MonoBehaviour
                 StartCoroutine(Virusing(i));
             }
         }
+
+        InFloor();
     }
 
     IEnumerator Virusing(int _i)
@@ -34,4 +37,18 @@ public class SolverDataBase : MonoBehaviour
         character[_i].isVirusing = false;
     }
 
+    public void InFloor()
+    {
+        for (int i = 0; i < character.Count; i++)
+        {
+            if (SceneManager.GetActiveScene().buildIndex == character[i].characterData.floor)
+            {
+                character[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                character[i].gameObject.SetActive(false);
+            }
+        }
+    }
 }

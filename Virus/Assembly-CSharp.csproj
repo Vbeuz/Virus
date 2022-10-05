@@ -71,9 +71,9 @@
     <Compile Include="Assets\Scripts\Solver\CharacterData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGizmo.cs" />
     <Compile Include="Assets\Scripts\Player\ItemList.cs" />
+    <Compile Include="Assets\Scripts\UI\FloorButton.cs" />
     <Compile Include="Assets\Scripts\World\Door.cs" />
     <Compile Include="Assets\Scripts\Floor\Floor.cs" />
-    <Compile Include="Assets\Scripts\UI\FloorButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />

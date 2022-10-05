@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SolverList : MonoBehaviour
 {
-    public Transform[] spawn;
+    public Transform spawn;
     public ScrollRect scrollRect;
     public GameObject solverPrefabs;
     public GameObject solverUIPrefabs;
@@ -19,7 +19,7 @@ public class SolverList : MonoBehaviour
     {
         if (PlayerData._ID - PlayerData.die < PlayerData.MaxSolverCont)
         {
-            var newSolver = Instantiate(solverPrefabs, spawn[0]).GetComponent<Character>();
+            var newSolver = Instantiate(solverPrefabs, spawn).GetComponent<Character>();
             var newUI = Instantiate(solverUIPrefabs, scrollRect.content).GetComponent<SolverUI>();
 
             newSolver.characterData.ID = PlayerData._ID;
